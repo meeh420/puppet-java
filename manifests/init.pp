@@ -8,8 +8,9 @@
 #  include java
 #
 class java(
-  $java_version = 8,
-  $oracle_java = true
+  $java_version    = 8,
+  $oracle_java     = true,
+  $package_version = 'precise'
 ) {
 
   # Initial parameter check
@@ -33,7 +34,7 @@ class java(
       if $::operatingsystem == 'debian' {
         apt::source { 'webupd8team':
           location     => 'http://ppa.launchpad.net/webupd8team/java/ubuntu',
-          release      => 'precise',
+          release      => $package_version,
           repos        => 'main',
           key          => 'EEA14886',
           key_server   => 'keyserver.ubuntu.com',
