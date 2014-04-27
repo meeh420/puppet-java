@@ -1,7 +1,7 @@
 # Java Puppet Module
 This module manages Oracle/OpenJDK Java.
 
-Supported Java versions: 6, 7 and 8 from Oracle and OpenJDK 6/7.
+Supported Oracle Java versions: 6, 7 and 8 and OpenJDK 6/7.
 
 This module has been tested against puppet 3.4 on Ubuntu 12.04 and Debian 6/7. (It currently support only Debian and Ubuntu as well.)
 
@@ -17,11 +17,13 @@ Pull requests to add support for other operating systems are welcome.
     include java
 
     # OracleJDK
-    class {'java': $java_version => '8', $install_oracle_java = true }
+    class {'java': $java_version => '8', $install_oracle_java = true ;}
 
     # OpenJDK
-    class {'java': $java_version => '7', $install_oracle_java = false }
+    class {'java': $java_version => '7', $install_oracle_java = false ;}
 
+    # Oracle, JDK 1.7, Debian only!, Set another version for compability.
+    class {'java': $java_version => '7', $install_oracle_java => true, package_version='raring' ;}
 
 ### Improvements since fork
 * Support for multiple versions.
