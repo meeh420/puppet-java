@@ -17,13 +17,13 @@ Pull requests to add support for other operating systems are welcome.
     include java
 
     # OracleJDK
-    class {'java': $java_version => '8', $install_oracle_java = true ;}
+    class {'java': java_version => '8', oracle_java = true ;}
 
     # OpenJDK
-    class {'java': $java_version => '7', $install_oracle_java = false ;}
+    class {'java': java_version => '7', oracle_java = false ;}
 
     # Oracle, JDK 1.7, Debian only!, Set another version for compability.
-    class {'java': $java_version => '7', $install_oracle_java => true, package_version='raring' ;}
+    class {'java': java_version => '7', oracle_java => true, package_version='raring' ;}
 
 ### Improvements since fork
 * Support for multiple versions.
